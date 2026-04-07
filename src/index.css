@@ -389,8 +389,8 @@ a.action_container:link {
 }
 .auth-card {
   display: flex;
-  flex-direction: column;   /* 🔥 ye sabse important */
-  gap: 15px;                /* spacing between inputs */
+  flex-direction: column;   
+  gap: 15px;                
   width: 300px;
  
 }

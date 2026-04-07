@@ -26,7 +26,7 @@ const wishlistSlice = createSlice({
         newState = [...state, itemId];
       }
 
-      // ✅ Save to localStorage
+      // Save to localStorage
       localStorage.setItem("wishlist", JSON.stringify(newState));
 
       return newState;

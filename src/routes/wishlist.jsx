@@ -2,16 +2,16 @@ import { useSelector } from "react-redux";
 import HomeItem from "../components/HomeItem";
 
 const Wishlist = () => {
-  // ✅ FIX 1: direct selector (no || [])
+  // direct selector
   const wishlistItems = useSelector((state) => state.wishlist);
   const items = useSelector((state) => state.items.allItems);
 
-  // ✅ FIX 2: fast lookup using Set
+  // fast lookup using Set
   const wishlistSet = new Set(wishlistItems);
 
   const finalItems = items.filter((item) => wishlistSet.has(Number(item.id)));
 
-  // ✅ FIX 3: safe price calc
+  //safe price calc
   const totalPrice = finalItems.reduce(
     (total, item) => total + (item.current_price || 0),
     0,
@@ -28,7 +28,7 @@ const Wishlist = () => {
     <div style={{ padding: "20px" }}>
       <h2>My Wishlist ❤️</h2>
 
-      {/* ✅ Summary */}
+      {/*  Summary */}
       {finalItems.length > 0 && (
         <div style={{ marginBottom: "20px" }}>
           <h3>Total: ₹{totalPrice}</h3>
@@ -37,7 +37,7 @@ const Wishlist = () => {
         </div>
       )}
 
-      {/* ✅ Items */}
+      {/*  Items */}
       {finalItems.length === 0 ? (
         <h3>No items in wishlist</h3>
       ) : (

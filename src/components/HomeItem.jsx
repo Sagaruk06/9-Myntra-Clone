@@ -6,16 +6,16 @@ import { GrAddCircle } from "react-icons/gr";
 const HomeItem = ({ item }) => {
   const dispatch = useDispatch();
 
-  // ✅ FIX 1: bagItems add kiya
+  //  bagItems add kiya
   const bagItems = useSelector((store) => store.bag || []);
 
   const wishlistItems = useSelector((store) => store.wishlist || []);
 
-  // ✅ quantity logic
+  // quantity logic
   const bagItem = bagItems.find((b) => Number(b.id) === Number(item.id));
   const quantity = bagItem ? bagItem.quantity : 0;
 
-  // ✅ wishlist fix (string/number mismatch)
+  //  wishlist
   const isWishlisted = wishlistItems.some(
     (id) => Number(id) === Number(item.id),
   );
